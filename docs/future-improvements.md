@@ -40,7 +40,7 @@ Each entry explains **what**, **why deferred**, and **what would trigger promoti
 ---
 
 ## Container exec
-**What:** Run arbitrary commands inside a running container (e.g., `mpro-observe exec --env staging --service api -- ps aux`).
+**What:** Run arbitrary commands inside a running container (e.g., `observe-cli exec --env staging --service api -- ps aux`).
 
 **Why deferred:** Mutation-adjacent. Conflicts with the "read-only in production" principle unless carefully scoped. Would need a safety model (allowlist of commands? explicit `--allow-exec` flag? separate subcommand with audit logging?).
 
@@ -78,7 +78,7 @@ Each entry explains **what**, **why deferred**, and **what would trigger promoti
 ## Alerting and automation
 **What:** Trigger actions based on patterns in live streams.
 
-**Why deferred:** Not this tool's job. `mpro-observe` is for human investigation, not automation. Crosses into observability platform territory.
+**Why deferred:** Not this tool's job. `observe-cli` is for human investigation, not automation. Crosses into observability platform territory.
 
 **Promotion trigger:** Never, probably. If this is needed, use a different tool.
 
@@ -94,7 +94,7 @@ Each entry explains **what**, **why deferred**, and **what would trigger promoti
 ---
 
 ## Monorepo migration
-**What:** Split `mpro-observe` into a multi-package workspace, for example CLI + shared core + optional future UI or analysis package.
+**What:** Split `observe-cli` into a multi-package workspace, for example CLI + shared core + optional future UI or analysis package.
 
 **Why deferred:** A single-package repo is simpler while the product shape is still settling. A monorepo adds workspace management, release coordination, and compile-path questions before there is a real second package.
 

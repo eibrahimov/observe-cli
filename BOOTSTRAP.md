@@ -1,6 +1,6 @@
 # BOOTSTRAP
 
-First-time setup runbook for `mpro-observe`. Read once, top to bottom.
+First-time setup runbook for `observe-cli`. Read once, top to bottom.
 
 **Already set up?** Skip to `docs/phases/phase-1.md`.
 **Looking up a pattern or decision?** See `docs/stack-reference.md`.
@@ -21,7 +21,7 @@ bun --version  # expect 1.3.12 or newer
 *(Skip if the repo already exists.)*
 
 ```bash
-mkdir mpro-observe && cd mpro-observe
+mkdir observe-cli && cd observe-cli
 git init
 ```
 
@@ -35,16 +35,16 @@ echo "1.3.12" > .bun-version
 
 ```json
 {
-  "name": "mpro-observe",
+  "name": "observe-cli",
   "version": "0.0.1",
   "type": "module",
   "private": true,
   "bin": {
-    "mpro-observe": "./src/index.ts"
+    "observe-cli": "./src/index.ts"
   },
   "scripts": {
     "dev": "bun run --watch src/index.ts",
-    "build": "bun build --compile --minify-whitespace --minify-syntax --sourcemap --bytecode --outfile dist/mpro-observe src/index.ts",
+    "build": "bun build --compile --minify-whitespace --minify-syntax --sourcemap --bytecode --outfile dist/observe-cli src/index.ts",
     "test": "bun test",
     "check": "bunx --bun biome check --write ./src",
     "typecheck": "bunx --bun tsc --noEmit"
@@ -128,12 +128,12 @@ import { defineCommand, runMain } from "citty"
 
 const main = defineCommand({
   meta: {
-    name: "mpro-observe",
+    name: "observe-cli",
     version: "0.0.1",
     description: "MigrationPro observability CLI",
   },
   run() {
-    console.log("mpro-observe scaffold is running")
+    console.log("observe-cli scaffold is running")
   },
 })
 

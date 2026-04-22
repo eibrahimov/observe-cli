@@ -1,4 +1,4 @@
-# mpro-observe
+# observe-cli
 
 Local-first CLI for collecting, filtering, normalizing, and saving remote Docker Compose service output for debugging and AI-assisted analysis.
 
@@ -10,11 +10,11 @@ Phase 1 is **logs only**. Later phases may add other data sources.
 
 ## Planned commands
 ```bash
-mpro-observe list-services --env staging
-mpro-observe list-services --env production --remote
+observe-cli list-services --env staging
+observe-cli list-services --env production --remote
 
-mpro-observe stream --env production --service api --since 5m --format text
-mpro-observe stream --env staging --services api,migrator --migration-id MIG_123 --format jsonl --save
+observe-cli stream --env production --service api --since 5m --format text
+observe-cli stream --env staging --services api,migrator --migration-id MIG_123 --format jsonl --save
 ```
 
 ## Core rules
@@ -26,8 +26,8 @@ mpro-observe stream --env staging --services api,migrator --migration-id MIG_123
 - Every completed checkpoint updates `CHANGELOG.md`.
 
 ## Config
-- Default path: `~/.config/mpro-observe/config.yml`
-- Override: `MPRO_OBSERVE_CONFIG=/custom/path/config.yml`
+- Default path: `~/.config/observe-cli/config.yml`
+- Override: `OBSERVE_CLI_CONFIG=/custom/path/config.yml`
 - See `docs/mvp-spec.md` for the full Phase 1 contract.
 
 ## Current environment

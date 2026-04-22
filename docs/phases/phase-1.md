@@ -55,7 +55,7 @@ Every completed checkpoint must update `CHANGELOG.md`.
 ## Checkpoints
 1. **Config loader**
    - assumes `BOOTSTRAP.md` is done (scaffold exists)
-   - add YAML config loader that reads `~/.config/mpro-observe/config.yml` or `MPRO_OBSERVE_CONFIG`
+   - add YAML config loader that reads `~/.config/observe-cli/config.yml` or `OBSERVE_CLI_CONFIG`
    - add basic config validation: env exists, paths exist, `ssh_target` is non-empty
    - tests: config load + validation
 2. **Service discovery**

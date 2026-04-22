@@ -22,12 +22,12 @@ Ship a usable Phase 1 CLI that can stream remote Docker Compose logs from stagin
 - advanced per-service parsing
 - alerting or automation
 ## Config
-- Default config path: `~/.config/mpro-observe/config.yml`
-- Optional override: `MPRO_OBSERVE_CONFIG=/custom/path/config.yml`
+- Default config path: `~/.config/observe-cli/config.yml`
+- Optional override: `OBSERVE_CLI_CONFIG=/custom/path/config.yml`
 - `ssh_target` must resolve through the user's SSH config without prompting for a password. Use SSH keys or agent forwarding. The tool does not store or prompt for credentials.
 ### Config schema
 ```yaml
-storage_root: ~/Documents/mpro-data
+storage_root: ~/Documents/observe-cli-data
 
 environments:
   staging:
@@ -49,14 +49,14 @@ filters:
 ```
 ## CLI commands
 ```bash
-mpro-observe list-services --env staging
-mpro-observe list-services --env production
-mpro-observe list-services --env staging --remote
+observe-cli list-services --env staging
+observe-cli list-services --env production
+observe-cli list-services --env staging --remote
 
-mpro-observe stream --env staging --service api --format text
-mpro-observe stream --env production --services api,migrator --format jsonl --save
-mpro-observe stream --env staging --all-services --since 10m --format raw
-mpro-observe stream --env production --service migrator --migration-id MIG_123 --format jsonl --save
+observe-cli stream --env staging --service api --format text
+observe-cli stream --env production --services api,migrator --format jsonl --save
+observe-cli stream --env staging --all-services --since 10m --format raw
+observe-cli stream --env production --service migrator --migration-id MIG_123 --format jsonl --save
 ```
 ## Command contract
 - `list-services`: requires `--env`, reads the local Compose file by default, can use `--remote` to run `docker compose config --services` over SSH, prints service names, and fails if the environment or Compose file is invalid.
