@@ -1,6 +1,6 @@
 # Stack Reference
 
-Decisions, build commands, and gotchas for `mpro-observe`. Looked up while coding, not read top to bottom.
+Decisions, build commands, and gotchas for `observe-cli`. Looked up while coding, not read top to bottom.
 
 **Setting up for the first time?** See `BOOTSTRAP.md` at repo root.
 **Reading about deferred ideas?** See `docs/future-improvements.md`.
@@ -39,14 +39,14 @@ Decisions, build commands, and gotchas for `mpro-observe`. Looked up while codin
 **Single binary:**
 ```bash
 bun run build
-# produces dist/mpro-observe (~55–60MB)
+# produces dist/observe-cli (~55–60MB)
 ```
 
 **Cross-compile:**
 ```bash
-bun build --compile --target bun-linux-x64 --outfile dist/mpro-observe-linux src/index.ts
-bun build --compile --target bun-darwin-arm64 --outfile dist/mpro-observe-macos src/index.ts
-bun build --compile --target bun-linux-arm64 --outfile dist/mpro-observe-linux-arm64 src/index.ts
+bun build --compile --target bun-linux-x64 --outfile dist/observe-cli-linux src/index.ts
+bun build --compile --target bun-darwin-arm64 --outfile dist/observe-cli-macos src/index.ts
+bun build --compile --target bun-linux-arm64 --outfile dist/observe-cli-linux-arm64 src/index.ts
 ```
 
 Supported targets: `bun-linux-x64`, `bun-linux-arm64`, `bun-darwin-x64`, `bun-darwin-arm64`, `bun-windows-x64`. The `-musl` variants exist for Alpine-based distributions.
